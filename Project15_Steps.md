@@ -801,9 +801,9 @@ mysql>
 	  * HRA-private-subnet-1  
 		HRA-private-subnet-2
 * **Step 3**  
-	Load balancing: Attach to an existing load balancer
-	Attach to an existing load balancer: Choose from your load balancer target group
-	Existing load balancer target groups: HRA-tooling-target (HRA-int-ALB)
+	Load balancing: Attach to an existing load balancer  
+	Attach to an existing load balancer: Choose from your load balancer target group  
+	Existing load balancer target groups: HRA-tooling-target (HRA-int-ALB)  
 	Health checks: ELB (put a check mark)
 * **Step 4**  
 	Group size: Everything 1
