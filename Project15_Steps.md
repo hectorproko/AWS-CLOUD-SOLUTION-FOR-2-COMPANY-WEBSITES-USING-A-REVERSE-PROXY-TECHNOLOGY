@@ -91,6 +91,13 @@ Edit Private Route Table **HRA-private-rtb** like so _dest:_ `0.0.0.0/0`  _targe
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/securiyGroups.png)  
 
 
+**Creating a hosted zone**  
+Tells **Route 53** how to respond to DNS queries for domain `hracompany.ga`  
+Route 53 > Hosted zones > Create hosted zone  
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/Hostedzone.gif)  
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/records.png) 
+
 
 
 
