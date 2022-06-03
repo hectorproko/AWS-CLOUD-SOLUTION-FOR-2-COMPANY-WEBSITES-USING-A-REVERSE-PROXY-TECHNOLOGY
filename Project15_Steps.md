@@ -314,10 +314,18 @@ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 	```
 Need to change `vi /etc/httpd/conf.d/ssl.conf`
 
-We need to change `SSLCertificateFile /etc/pki/tls/certs/localhost.crt` to `SSLCertificateFile /etc/pki/tls/certs/ACS.crt`  
-I used **sed** 
+We need to change:  
+`SSLCertificateFile /etc/pki/tls/certs/localhost.crt` **to** `SSLCertificateFile /etc/pki/tls/certs/ACS.crt`  
+
+`SSLCertificateKeyFile /etc/pki/tls/private/localhost.key` **to** `SSLCertificateKeyFile /etc/pki/tls/private/ACS.key`
+
+I used **sed**
 ``` bash
 sed -i 's_SSLCertificateFile /etc/pki/tls/certs/localhost.crt_SSLCertificateFile /etc/pki/tls/certs/ACS.crt_g' /etc/httpd/conf.d/ssl.conf
+```  
+
+``` bash
+sed -i 's_SSLCertificateKeyFile /etc/pki/tls/private/localhost.key_SSLCertificateKeyFile /etc/pki/tls/private/ACS.key_g' /etc/httpd/conf.d/ssl.conf
 ```  
 
 
