@@ -342,26 +342,31 @@ _(delete instances after)_
 #### Creating Target Groups  
 EC2 > Load Balancing >Target Groups > Create target group
 	
-	Target group name: HRA-nginx-target
-	Protocol: HTTPS
-	VPC: HRA-VPC
-	Health check settings
-		Protocol: HTTPS
-		Path: /healthstatus
+* Target group name: **HRA-nginx-target**  
+  Protocol: HTTPS  
+  VPC: **HRA-VPC**  
+  Health check settings  
+  * Protocol: HTTPS  
+	Path: `/healthstatus  `
 		
-	Target group name: HRA-wordpress-target
-	Protocol: HTTPS
-	VPC: HRA-VPC
-	Health check settings
-		Protocol: HTTPS
-		Path: /healthstatus
+* Target group name: **HRA-wordpress-target**  
+  Protocol: HTTPS  
+  VPC: **HRA-VPC**  
+  Health check settings  
+  * Protocol: HTTPS  
+    Path: `/healthstatus`  
 
-	Target group name: HRA-tooling-target
-	Protocol: HTTPS
-	VPC: HRA-VPC
-	Health check settings
-		Protocol: HTTPS
-		Path: /healthstatus
+* Target group name: **HRA-tooling-target**  
+  Protocol: HTTPS  
+  VPC: **HRA-VPC** 
+  Health check settings  
+  * Protocol: HTTPS  
+    Path: `/healthstatus`  
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/targetGroups.png)  
+
+
+
 
 
 
