@@ -435,6 +435,95 @@ So depending on the header `tooling.hracompany.ga`, `www.tooling.hracompany.ga`,
 
 
 
+#### Creating Launch Templates  
+EC2 > Launch Templates > Create launch template  
+
+* Launch template name and description
+  * Launch template name: **HRA-bastion-template**
+	Template version description:  for bastion
+* Template tags
+  * Name **HRA-bastion-template**
+* Application and OS Images (Amazon Machine Image)
+  * AMI: **HRA-bastion-ami**
+* Instance type
+  * Instance type: **t2.micro**
+* Key pair (login)
+  * Key pair name: devops.pem
+* Network settings
+  * Subnet: **HRA-public-subnet-2**
+	Firewall (security groups) - Select existing security group
+     * Security groups: **HRA-bastion**
+  * Advanced network configuration
+     * Network Interface:
+	   Auto-assign public IP: Enable
+	   Subnet
+	   Security groups, putting it twice? they are pick automatically
+* Advanced details
+  * User data:
+	``` bash
+	#!/bin/bash 
+	yum update
+	yum install -y mysql 
+	yum install -y git tmux 
+	yum install -y ansible
+	```
+
+* Launch template name and description
+  * Launch template name: HRA-nginx-template
+	Template version description:  for nginx
+* Template tags
+  * Name HRA-nginx-template
+* Application and OS Images (Amazon Machine Image)
+  * AMI: HRA-nginx-ami
+* Instance type
+  * Instance type: t2.micro
+* Key pair (login)
+  * Key pair name: devops.pem
+* Network settings
+  * Subnet: HRA-public-subnet-1
+	Firewall (security groups) - Select existing security group
+     * Security groups: HRA-nginx-reverse-proxy
+  * Advanced network configuration
+     * Auto-assign public IP: Enable
+* Advanced details
+  * User data: (more explanation)
+    ``` bash
+	#!/bin/bash
+	yum install -y nginx
+	systemctl start nginx
+	systemctl enable nginx
+	git clone https://github.com/hectorproko/HRA-project-config.git
+	mv /HRA-project-config/reverse.conf /etc/nginx/
+	mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf-distro
+	cd /etc/nginx/
+	touch nginx.conf
+	sed -n 'w nginx.conf' reverse.conf
+	systemctl restart nginx
+	rm -rf reverse.conf
+	rm -rf /HRA-project-config
+    ```
+	                
+	                https://github.com/hectorproko/HRA-project-config.git
+	                Need to edit reverse.conf
+	                Proxy_pass <Public DNS Internal ALB>
+DNS name: internal-HRA-int-ALB-1557292755.us-east-1.elb.amazonaws.com
+	                Server_name <your domain> hracompany.ga
+	                
+	                Edited:
+	                        server_name *.hracompany.ga;
+	                        proxy pass https://internal-HRA-int-ALB-1557292755.us-east-1.elb.amazonaws.com/; 
+	        
+
+	        
+	        Screen clipping taken: 5/9/2022 9:16 AM
+	        
+	        
+	        Screen clipping taken: 5/9/2022 9:17 AM
+	        
+	        
+	        
+
+
 	
 
 	
