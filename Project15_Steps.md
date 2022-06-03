@@ -559,7 +559,8 @@ systemctl restart httpd
 
 Need to change **EFS Access Point**  
 Amazon EFS > Access points _(I get access point for **wordpress**)_  
-sudo mount -t efs -o tls,accesspoint=`fsap-062202198bc6f1e1a fs-00a1cb0a1b244d9b6`:/ /var/www/  
+sudo mount -t efs -o tls,accesspoint=`fsap-062202198bc6f1e1a fs-00a1cb0a1b244d9b6`:/ /var/www/
+
 In access point you need click attach to get the mount point of EFS  
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/EFS_mount_wordpress.gif)  
 
@@ -617,6 +618,21 @@ Master password: **admin12345**
 	chcon -t httpd_sys_rw_content_t /var/www/html/ -R
 	systemctl restart httpd
 	```
+Need to change **EFS Access Point**  
+Amazon EFS > Access points _(I get access point for **wordpress**)_  
+sudo mount -t efs -o tls,accesspoint=`fsap-062202198bc6f1e1a fs-00a1cb0a1b244d9b6`:/ /var/www/  
+
+Need to change **RDS Endpoint**  
+* RDS > Databases > \<Your Database>  
+   * Connectivity & security  
+      * Endpoint: \<Need this>  
+
+``` bash
+mysql -h `hra-database.cssi6ineszpw.us-east-1.rds.amazonaws.com` -u HRAadmin -p toolingdb < tooling-db.sql  
+
+sed -i "s/$db = mysqli_connect('mysql.tooling.svc.cluster.local', 'admin', 'admin', 'tooling');/$db = mysqli_connect('hra-database.cssi6ineszpw.us-east-1.rds.amazonaws.com', 'HRAadmin', 'admin12345', 'toolingdb');/g" functions.php
+```
+
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/launchTemplates.png) 
 
 
