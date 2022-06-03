@@ -328,6 +328,43 @@ sed -i 's_SSLCertificateFile /etc/pki/tls/certs/localhost.crt_SSLCertificateFile
 sed -i 's_SSLCertificateKeyFile /etc/pki/tls/private/localhost.key_SSLCertificateKeyFile /etc/pki/tls/private/ACS.key_g' /etc/httpd/conf.d/ssl.conf
 ```  
 
+#### Creating AMI from the instances  
+_(delete instances after)_  
+
+**HRA-webserver-ami** , description: for webserver
+**HRA-bastion-ami** , description: for bastion
+**HRA-nginx-ami** , description: for nginx  
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/bastionAMI.gif)  
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/amis.png)  
+
+#### Creating Target Groups  
+EC2 > Load Balancing >Target Groups > Create target group
+	
+	Target group name: HRA-nginx-target
+	Protocol: HTTPS
+	VPC: HRA-VPC
+	Health check settings
+		Protocol: HTTPS
+		Path: /healthstatus
+		
+	Target group name: HRA-wordpress-target
+	Protocol: HTTPS
+	VPC: HRA-VPC
+	Health check settings
+		Protocol: HTTPS
+		Path: /healthstatus
+
+	Target group name: HRA-tooling-target
+	Protocol: HTTPS
+	VPC: HRA-VPC
+	Health check settings
+		Protocol: HTTPS
+		Path: /healthstatus
+
+
+
 
 
 
