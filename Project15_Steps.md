@@ -645,19 +645,19 @@ EC2 > Auto Scaling > Auto Scaling Groups > Create Auto Scaling group
    * Launch template
       * Launch template: **HRA-bastion-template**
 * **Step 2**
-   * Instance purchase options: **Adhere to launch template**
+   * Instance purchase options: **Adhere to launch template**  
 	 Network
-      * VPC: **HRA-VPC**
+      * VPC: **HRA-VPC**  
 		Subnet: 
-		 * **HRA-public-subnet-1**
+		 * **HRA-public-subnet-1**  
 		   **HRA-public-subnet-2**
 * **Step 3**
-   * Load balancing: **No load balancer**
+   * Load balancing: **No load balancer**  
 	Health checks: **ELB** (put a check mark)
 * **Step 4**
-   * Group size: Everything 1 
-	Scaling policies: Target tracking scaling policy 
-	Target value: 90
+   * Group size: Everything 1  
+	 Scaling policies: Target tracking scaling policy  
+	 Target value: 90
 * **Step 5**
    * Add notifications  
       * SNS Topic: <drop down>  
