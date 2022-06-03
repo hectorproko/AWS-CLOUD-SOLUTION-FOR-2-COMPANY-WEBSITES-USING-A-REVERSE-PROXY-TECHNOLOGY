@@ -121,6 +121,44 @@ Mount targets: **HRA-private-subnet-1** and **HRA-private-subnet-2**, where the 
 Apply Security Group **HRA-datalayer**  
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/EFS.gif)  
 
+**Creating Access Point**  
+[Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html)  
+Amazon EFS access points are application-specific entry points into an EFS file system that make it easier to manage application access to shared datasets.  
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/createAccessPoint.gif)  
+
+* Details:  
+  * Name: wordpress  
+	* Root directory path: `/wordpress  `
+  * POSIX user:  
+	* User ID: `0`  
+	* Group ID: `0`  
+  * Root directory creation permission:  
+	* Owner user ID: `0`  
+	* Owner group ID: `0`  
+	* POSIX permission to apply to the root directory path : `0755`  
+	* Tag name: wordpress-ap (ap access point)  
+	
+* Details:  
+  * Name: tooling  
+	* Root directory path: `/tooling` 
+  * POSIX user:  
+	* User ID: `0`   
+	* Group ID: `0`  
+  * Root directory creation permission:  
+	* Owner user ID: `0`  
+	* Owner group ID: `0`  
+	* POSIX permission to apply to the root directory path : `0755`  
+	* Tag name: tooling-ap (ap access point)  
+
+
+
+
+
+
+
+
+
 
 
 
