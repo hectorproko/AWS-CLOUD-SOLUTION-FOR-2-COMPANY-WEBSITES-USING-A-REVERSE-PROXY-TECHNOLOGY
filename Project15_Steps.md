@@ -204,13 +204,82 @@ Amazon RDS > Subnet groups > Create DB Subnet Group
 Production gives option to select encryption key  		
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/productionRDSencryption.gif)  
 
-Choosing **Free Tier**  
+Creating RDS with  **Free Tier**  
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/RDS_creation.gif)  
 
+**Get the Endpoint:**  
+`hra-database.cssi6ineszpw.us-east-1.rds.amazonaws.com`  
 
 
+#### Creating and Preparing EC2 Instances
+	We create 3 RedHat Instances bastion, nginx and webserver install various things to create an image from later  
+
+**Bastion**  
+
+``` bash
+	#commands for ami installation  
+	sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+	sudo yum install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+	sudo yum install wget vim python3 telnet htop git mysql net-tools chrony -y
+	sudo systemctl start chronyd
+	sudo systemctl enable chronyd
+```
+
+**Nginx**  
+``` bash
+#commands for ami installation  
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+yum install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+yum install wget vim python3 telnet htop git mysql net-tools chrony -y
+systemctl start chronyd
+systemctl enable chronyd
 
 
+#configure selinux policies
+setsebool -P httpd_can_network_connect=1
+setsebool -P httpd_can_network_connect_db=1
+setsebool -P httpd_execmem=1
+setsebool -P httpd_use_nfs 1
+
+
+#install amazon efs utils for mounting the target on the Elastic file system
+git clone https://github.com/aws/efs-utils
+cd efs-utils
+yum install -y make
+yum install -y rpm-build
+make rpm 
+yum install -y  ./build/amazon-efs-utils*rpm
+
+#setting up self-signed certificate
+sudo mkdir /etc/ssl/private
+sudo chmod 700 /etc/ssl/private
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/ACS.key -out /etc/ssl/certs/ACS.crt
+sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+
+```
+
+**Nginx Self Signed Certificate Output**  
+``` bash
+writing new private key to '/etc/ssl/private/ACS.key'
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [XX]:US
+State or Province Name (full name) []:FL
+Locality Name (eg, city) [Default City]:Miami
+Organization Name (eg, company) [Default Company Ltd]:HRAcompany
+Organizational Unit Name (eg, section) []:Dev
+Common Name (eg, your name or your server's hostname) []:172.31.17.2
+Email Address []:myemail@email.com
+```
+
+
+**Webserver**  
 
 
 
