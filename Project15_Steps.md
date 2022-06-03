@@ -102,7 +102,7 @@ The values under **Value/Route traffic to** are nameservers, need to add those i
 
 **Request Certificate**  
 * DNS Validation  
-  Tag: Name **HRA-Cert**   
+  Tag: Name **HRA-Cert**  
   Validation Step: button **Create record in Route 53**  
 
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/requestCertificate2.gif)  
