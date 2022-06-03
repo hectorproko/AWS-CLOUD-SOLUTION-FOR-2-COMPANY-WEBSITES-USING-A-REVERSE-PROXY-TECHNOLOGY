@@ -76,6 +76,15 @@ Edit Public Route Table **HRA-public-rtb** (to target **HRA-Igw** Internet Gatew
 	Create the NAT in NAT Gateways (**HRA-NatGateway**) into **Public Subnet 1** and choose Elastic IP **HRA-NAT**  
 	![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/NATcreation.gif)  
 
+Edit Private Route Table **HRA-private-rtb** like so _dest:_ `0.0.0.0/0`  _target:_ **HRA-NatGateway**  
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/privateRTB_NAT.gif)  
 
-
-
+**Creating Security Groups**
+* VPC > SECURITY > Security Groups > Create security group  
+	
+	HRA-ext-ALB | HTTP/S from anywhere  
+	HRA-bastion | SSH from anywhere (ideally from our current IP)  
+	HRA-nginx-reverse-proxy | HTTP/s from HRA-ext-ALB  
+	HRA-int-ALB | HTTP/S from HRA-nginx-reverse-proxy  
+	HRA-webserver | SSH from HRA-bastion , HTTP/S from HRA-int-ALB 
+	HRA-datalayer | MYSQL/Aurora from HRA-bastion , NFS from HRA-webserver , MYSQL/Aurora from HRA-webserver  
