@@ -761,7 +761,7 @@ mysql>
 	 Attach to an existing load balancer: **Choose from your load balancer target group**  
 	 Existing load balancer target groups: **HRA-wordpress-target** (HRA-int-ALB)  
 	 Health checks: **ELB** (put a check mark)
-* **Step 4** 
+* **Step 4**  
 	Group size: Everything 1  
 	Scaling policies: Target tracking scaling policy  
 	Target value: 90
