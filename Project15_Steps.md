@@ -9,13 +9,13 @@ I start by getting a domain `hracompany.ga` from `www.freenom.com`
 * AWS Organizations > AWS accounts
 	* Select root account > Actions > Organizational Unit - Create New
 
-Created a new account called **DevOps**
+Created a new account called **DevOps**  
 * AWS Organizations > AWS accounts > Add an AWS Account
 
-Moved **DevOps** account to Organizational Unit **Dev**
+Moved **DevOps** account to Organizational Unit **Dev**  
 * Select DevOps > Actions > Move  
 
-Created Organizational Unit **Dev**  and put Account **DevOps** 
+Created Organizational Unit **Dev**  and put Account **DevOps**  
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/organizationalUnit.png)  
 
 Login to newly created account **DevOps**  
