@@ -617,7 +617,7 @@ Master password: **admin12345**
 	chcon -t httpd_sys_rw_content_t /var/www/html/ -R
 	systemctl restart httpd
 	```
-
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/launchTemplates.png) 
 
 
 
