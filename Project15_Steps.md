@@ -110,7 +110,19 @@ The values under **Value/Route traffic to** are nameservers, need to add those i
   ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/createRecordsRoute53.png)  
 
 Now we see in Route 53 > Hosted zones > `hracompany.ga`  
-![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/records2.png)
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/records2.png)  
+
+**Creating Elastic File System**  
+* EFS > Create file system  
+  Name: **HRA-filesystem**  
+  VPC: **HRA-VPC**  
+
+Mount targets: **HRA-private-subnet-1** and **HRA-private-subnet-2**, where the webservers are, resources in these subnets will have the ability to mount the filesystem  
+Apply Security Group **HRA-datalayer**  
+
+EFS.gif
+
+
 
 
 
