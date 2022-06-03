@@ -98,6 +98,20 @@ Route 53 > Hosted zones > Create hosted zone
 
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/records.png) 
 
+The values under **Value/Route traffic to** are nameservers, need to add those in `www.freenom.com`  
+
+**Request Certificate**  
+* DNS Validation  
+  Tag: Name **HRA-Cert** 
+  Validation Step: button **Create record in Route 53**  
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/requestCertificate2.gif)  
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/createRecordsRoute53.png)  
+
+
+
+
 
 
 
