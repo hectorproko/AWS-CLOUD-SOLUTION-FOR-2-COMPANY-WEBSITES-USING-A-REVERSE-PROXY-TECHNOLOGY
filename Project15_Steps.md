@@ -65,4 +65,17 @@ Creating Internet Gateway **HRA-Igw** attach to **HRA-VPC**
   ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/subnetAssociationPrivateRTB.gif)  
 
 Edit Public Route Table **HRA-public-rtb** (to target **HRA-Igw** Internet Gateway)  
-![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/publicRTB_internetGateway.gif) 
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/publicRTB_internetGateway.gif)  
+
+**Create a NAT gateway**  
+* VPC > Elastic IPs > Allocate Elastic IP Address  
+	Allocate Elastic IP (Tag name **HRA-NAT**)  
+	![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/NAT_ElasticIP.gif)  
+	
+* VPC > NAT Gateways > Create NAT gateway  
+	Create the NAT in NAT Gateways (**HRA-NatGateway**) into **Public Subnet 1** and choose Elastic IP **HRA-NAT**  
+	![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/NATcreation.gif)  
+
+
+
+
