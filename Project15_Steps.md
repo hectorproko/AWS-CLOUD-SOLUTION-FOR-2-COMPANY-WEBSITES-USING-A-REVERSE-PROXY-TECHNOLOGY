@@ -469,20 +469,20 @@ EC2 > Launch Templates > Create launch template
 	```
 
 * Launch template name and description
-  * Launch template name: HRA-nginx-template
+  * Launch template name: **HRA-nginx-template**
 	Template version description:  for nginx
 * Template tags
-  * Name HRA-nginx-template
+  * Name **HRA-nginx-template**
 * Application and OS Images (Amazon Machine Image)
-  * AMI: HRA-nginx-ami
+  * AMI: **HRA-nginx-ami**
 * Instance type
-  * Instance type: t2.micro
+  * Instance type: **t2.micro**
 * Key pair (login)
   * Key pair name: devops.pem
 * Network settings
-  * Subnet: HRA-public-subnet-1
+  * Subnet: **HRA-public-subnet-1**
 	Firewall (security groups) - Select existing security group
-     * Security groups: HRA-nginx-reverse-proxy
+     * Security groups: **HRA-nginx-reverse-proxy**
   * Advanced network configuration
      * Auto-assign public IP: Enable
 * Advanced details
@@ -510,20 +510,20 @@ Make sure I have:
 `proxy pass https://internal-HRA-int-ALB-1557292755.us-east-1.elb.amazonaws.com/;` _(Internal Load Balancer)_
 
 * Launch template name and description
-  * Launch template name: HRA-wordpress-template
+  * Launch template name: **HRA-wordpress-template**
 	Template version description:  for wordpress
 * Template tags
-  * Name HRA-wordpress-template
+  * Name **HRA-wordpress-template**
 * Application and OS Images (Amazon Machine Image)
-  * AMI: HRA-webserver-ami
+  * AMI: **HRA-webserver-ami**
 * Instance type
-  * Instance type: t2.micro
+  * Instance type: **t2.micro**
 * Key pair (login)
   * Key pair name: devops.pem
 * Network settings
-  * Subnet: HRA-private-subnet-1
+  * Subnet: **HRA-private-subnet-1**
 	Firewall (security groups) - Select existing security group
-     * Security groups: HRA-webservers
+     * Security groups: **HRA-webservers**
   * Advanced network configuration
      * Auto-assign public IP: disable
 * Advanced details
@@ -577,20 +577,20 @@ Master password: **admin12345**
 
 
 * Launch template name and description
-  * Launch template name: HRA-tooling-template
+  * Launch template name: **HRA-tooling-template**
 	Template version description:  for tooling
 * Template tags
-  * Name HRA-tooling-template
+  * Name **HRA-tooling-template**
 * Application and OS Images (Amazon Machine Image)
-  * AMI: HRA-webserver-ami
+  * AMI: **HRA-webserver-ami**
 * Instance type
-  * Instance type: t2.micro
+  * Instance type: **t2.micro**
 * Key pair (login)
   * Key pair name: devops.pem
 * Network settings
-  * Subnet: HRA-private-subnet-1
+  * Subnet: **HRA-private-subnet-1**
 	Firewall (security groups) - Select existing security group
-     * Security groups: HRA-webservers
+     * Security groups: **HRA-webservers**
   * Advanced network configuration
      * Auto-assign public IP: disable
 * Advanced details
@@ -634,6 +634,9 @@ sed -i "s/$db = mysqli_connect('mysql.tooling.svc.cluster.local', 'admin', 'admi
 ```
 
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/launchTemplates.png) 
+
+
+
 
 
 
