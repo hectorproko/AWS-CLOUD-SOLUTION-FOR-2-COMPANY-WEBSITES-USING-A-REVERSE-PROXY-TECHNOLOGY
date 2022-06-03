@@ -329,7 +329,7 @@ sed -i 's_SSLCertificateKeyFile /etc/pki/tls/private/localhost.key_SSLCertificat
 ```  
 
 #### Creating AMI from the instances  
-_(delete instances after)_  
+_(deleted instances after)_  
 
 **HRA-webserver-ami** , description: for webserver
 **HRA-bastion-ami** , description: for bastion
@@ -427,12 +427,11 @@ On **Listeners and routing** added `HTTPS:443`
 	We see by default we have 
 	We can insert rule, add condition, host header
 	
-	intALB_Rules.gif
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/intALB_Rules.gif)  
 
 
-	
-	Screen clipping taken: 5/9/2022 8:38 AM
-	intALB_RulesPNG
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/intALB_RulesPNG.png)  
+
 	
 	So if header is tooling.oylnadmola or www.tooling.. If will forward to a different target group ACS-tooling-target
 	tooling.hracompany.ga or www
