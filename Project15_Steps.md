@@ -640,19 +640,19 @@ sed -i "s/$db = mysqli_connect('mysql.tooling.svc.cluster.local', 'admin', 'admi
 EC2 > Auto Scaling > Auto Scaling Groups > Create Auto Scaling group
 
 * **Step 1**
-   * Name 
-      * Auto Scaling group name: **HRA-bastion** 
-   * Launch template 
+   * Name
+      * Auto Scaling group name: **HRA-bastion**
+   * Launch template
       * Launch template: **HRA-bastion-template**
 * **Step 2**
-   * Instance purchase options: **Adhere to launch template** 
-	 Network 
-      * VPC: **HRA-VPC** 
+   * Instance purchase options: **Adhere to launch template**
+	 Network
+      * VPC: **HRA-VPC**
 		Subnet: 
-		 * **HRA-public-subnet-1** 
+		 * **HRA-public-subnet-1**
 		   **HRA-public-subnet-2**
 * **Step 3**
-   * Load balancing: **No load balancer** 
+   * Load balancing: **No load balancer**
 	Health checks: **ELB** (put a check mark)
 * **Step 4**
    * Group size: Everything 1 
