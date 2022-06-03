@@ -619,8 +619,8 @@ Master password: **admin12345**
 	systemctl restart httpd
 	```
 Need to change **EFS Access Point**  
-Amazon EFS > Access points _(I get access point for **wordpress**)_  
-sudo mount -t efs -o tls,accesspoint=`fsap-062202198bc6f1e1a fs-00a1cb0a1b244d9b6`:/ /var/www/  
+Amazon EFS > Access points _(I get access point for **tooling**)_    
+sudo mount -t efs -o tls,accesspoint=`fsap-034c23b099270e3e7 fs-00a1cb0a1b244d9b6`:/ /var/www/  
 
 Need to change **RDS Endpoint**  
 * RDS > Databases > \<Your Database>  
