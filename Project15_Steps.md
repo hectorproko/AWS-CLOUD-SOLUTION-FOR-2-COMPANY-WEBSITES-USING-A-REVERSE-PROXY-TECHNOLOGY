@@ -501,27 +501,16 @@ EC2 > Launch Templates > Create launch template
 	systemctl restart nginx
 	rm -rf reverse.conf
 	rm -rf /HRA-project-config
-    ```
+    ```  
 	                
-	                https://github.com/hectorproko/HRA-project-config.git
-	                Need to edit reverse.conf
-	                Proxy_pass <Public DNS Internal ALB>
-DNS name: internal-HRA-int-ALB-1557292755.us-east-1.elb.amazonaws.com
-	                Server_name <your domain> hracompany.ga
-	                
-	                Edited:
-	                        server_name *.hracompany.ga;
-	                        proxy pass https://internal-HRA-int-ALB-1557292755.us-east-1.elb.amazonaws.com/; 
-	        
+ Need to edit `reverse.conf` in repo `https://github.com/hectorproko/HRA-project-config.git`  
 
-	        
-	        Screen clipping taken: 5/9/2022 9:16 AM
-	        
-	        
-	        Screen clipping taken: 5/9/2022 9:17 AM
-	        
-	        
-	        
+Make sure I have:  
+`server_name *.hracompany.ga;`  
+`proxy pass https://internal-HRA-int-ALB-1557292755.us-east-1.elb.amazonaws.com/;`  
+
+
+
 
 
 	
