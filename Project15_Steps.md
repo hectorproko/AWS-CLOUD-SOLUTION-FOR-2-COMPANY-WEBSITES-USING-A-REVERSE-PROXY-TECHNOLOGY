@@ -425,9 +425,8 @@ On **Listeners and routing** added `HTTPS:443`
 
 Go to internal LB and click tab Listeners  
 We can insert rule, add condition, host header  
-So depending on the header, traffic will be forwarded to a specific target group   
-	`tooling.hracompany.ga` or `www.tooling.hracompany.ga`  
-	`wordpress.hracompany.ga` or `www.wordpress.hracompany.ga`
+So depending on the header `tooling.hracompany.ga`, `www.tooling.hracompany.ga`, `wordpress.hracompany.ga`, `www.wordpress.hracompany.ga`, traffic will be forwarded to a specific target group   
+	
 
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/intALB_Rules.gif)  
 
