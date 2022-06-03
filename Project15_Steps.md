@@ -18,7 +18,7 @@ Moved **DevOps** account to Organizational Unit **Dev**
 Created Organizational Unit **Dev**  and put Account **DevOps** 
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/organizationalUnit.png)  
 
-Login to newly created account **DevOps**
+Login to newly created account **DevOps**  
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/accountDevOps.png)  
 
 #### Create VPC 
