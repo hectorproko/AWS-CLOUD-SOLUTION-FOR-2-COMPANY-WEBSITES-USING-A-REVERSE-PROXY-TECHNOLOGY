@@ -669,6 +669,9 @@ EC2 > Auto Scaling > Auto Scaling Groups > Create Auto Scaling group
      * Name **HRA-bastion**  
 
 
+
+
+
 * **Step 1**
    * Name 
 	 * Auto Scaling group name: **HRA-nginx**  
@@ -699,6 +702,10 @@ EC2 > Auto Scaling > Auto Scaling Groups > Create Auto Scaling group
 * **Step 6**
    * Add tags  
      * Name **HRA-nginx**
+
+
+
+
 
 ### Create database _wordpressdb_ and _toolingdb_  
 Now I'll use Bastion Instance to connect to **RDS**  
@@ -744,6 +751,9 @@ mysql> show databases;
 mysql>
 ```
 
+
+
+
 * **Step 1**  
   * Name  
     * Auto Scaling group name: **HRA-wordpress**  
@@ -776,6 +786,38 @@ mysql>
     * Name **HRA-wordpress**  
 
 
+
+
+* **Step 1**  
+  * Name
+	* Auto Scaling group name: HRA-tooling
+  * Launch template
+	* Launch template: HRA-tooling-template
+* **Step 2**  
+  * Instance purchase options: Adhere to launch template
+  * Network
+	* VPC: HRA-VPC
+	* Subnet:
+	  * HRA-private-subnet-1  
+		HRA-private-subnet-2
+* **Step 3**  
+	Load balancing: Attach to an existing load balancer
+	Attach to an existing load balancer: Choose from your load balancer target group
+	Existing load balancer target groups: HRA-tooling-target (HRA-int-ALB)
+	Health checks: ELB (put a check mark)
+* **Step 4**  
+	Group size: Everything 1
+	Scaling policies: Target tracking scaling policy
+	Target value: 90
+* **Step 5**  
+	* Add notifications
+	  * SNS Topic: <drop down> 
+		* Create a topic
+		 * Send a notification to: HRA Notification
+		   With these recipients: \<email>
+* **Step 6**  
+  * Add tags  
+    * Name **HRA-tooling**
 
 
 
