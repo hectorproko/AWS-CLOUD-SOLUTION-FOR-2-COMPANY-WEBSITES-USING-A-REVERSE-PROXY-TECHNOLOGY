@@ -45,4 +45,24 @@ Creating Internet Gateway **HRA-Igw** attach to **HRA-VPC**
 	* **Private Subnet  3** HRA-private-subnet-3  
 	`10.0.5.0/24` | East 1a
 	* **Private Subnet  4** HRA-private-subnet-4  
-	`10.0.6.0/24` | East 1b
+	`10.0.6.0/24` | East 1b  
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/subnet.png)  
+
+**Creating Route Tables**
+* VPC > Route Tables > Create route table
+  * Created Route Tables  
+	* **HRA-public-rtb**  
+    * **HRA-private-rtb**  
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/routeTable.png) 
+
+**Associate Subnets to Route Tables**  
+* **HRA-public-rtb** to Public Subnets 
+  ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/subnetAssociationPublicRTB.gif)	 
+	
+* **HRA-private-rtb** to Private Subnets  
+  ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/subnetAssociationPrivateRTB.gif)  
+
+Edit Public Route Table **HRA-public-rtb** (to target **HRA-Igw** Internet Gateway)  
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/publicRTB_internetGateway.gif) 
