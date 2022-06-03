@@ -635,8 +635,114 @@ sed -i "s/$db = mysqli_connect('mysql.tooling.svc.cluster.local', 'admin', 'admi
 
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/launchTemplates.png) 
 
+### Create Auto Scaling Group
+
+EC2 > Auto Scaling > Auto Scaling Groups > Create Auto Scaling group
+
+* **Step 1** 
+   * Name 
+      * Auto Scaling group name: **HRA-bastion** 
+   * Launch template 
+      * Launch template: **HRA-bastion-template** 
+* **Step 2** 
+   * Instance purchase options: **Adhere to launch template** 
+	 Network 
+      * VPC: **HRA-VPC** 
+		Subnet: 
+		 * **HRA-public-subnet-1** 
+		   **HRA-public-subnet-2** 
+* **Step 3** 
+   * Load balancing: **No load balancer** 
+	Health checks: **ELB** (put a check mark) 
+* **Step 4** 
+   * Group size: Everything 1 
+	Scaling policies: Target tracking scaling policy 
+	Target value: 90 
+* **Step 5** 
+   * Add notifications  
+      * SNS Topic: <drop down>  
+        * Create a topic  
+		  * Send a notification to: **HRA Notification**  
+		  * With these recipients: <email>  
+* **Step 6**  
+   * Add tags  
+     * Name **HRA-bastion**  
 
 
+* **Step 1** 
+   * Name 
+	 * Auto Scaling group name: HRA-nginx  
+   * Launch template    
+	 * Launch template: HRA-nginx-template  
+* **Step 2**   
+   * Instance purchase options: Adhere to launch template  
+	 Network  
+	  * VPC: **HRA-VPC**  
+		Subnet:  
+		 * **HRA-public-subnet-1**  
+		   **HRA-public-subnet-2**  
+* **Step 3**   
+   * Load balancing: **Attach to an existing load balancer**  
+	 Attach to an existing load balancer: Choose from your load balancer target group  
+	 Existing load balancer target groups: **HRA-nginx-target**  
+	 Health checks: **ELB** (put a check mark)  
+* **Step 4**   
+   * Group size: Everything 1   
+	 Scaling policies: Target tracking scaling policy   
+	 Target value: 90   
+* **Step 5** 
+   * Add notifications  
+      * SNS Topic: <drop down>  
+        * Create a topic  
+		  * Send a notification to: **HRA Notification**  
+		  * With these recipients: <email>  
+* **Step 6**  
+   * Add tags  
+     * Name **HRA-nginx**
+
+### Create database _wordpressdb_ and _toolingdb_  
+Now I'll use Bastion Instance to connect to **RDS**  
+
+We need the **Endpoint** of **HRA-database**  
+RDS > Databases > HRA-database > Connectivity & security  
+ * Endpoint: `hra-database.cssi6ineszpw.us-east-1.rds.amazonaws.com`  
+
+``` bash
+[ec2-user@ip-10-0-3-86 ~]$ mysql -h hra-database.cssi6ineszpw.us-east-1.rds.amazonaws.com -u HRAadmin -p #<<<
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 33
+Server version: 8.0.27 Source distribution
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE toolingdb; #<<<
+Query OK, 1 row affected (0.01 sec)
+
+mysql> CREATE DATABASE wordpressdb; #<<< 
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| toolingdb          |#<<<
+| wordpressdb        |#<<<
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql>
+```
 
 
 
