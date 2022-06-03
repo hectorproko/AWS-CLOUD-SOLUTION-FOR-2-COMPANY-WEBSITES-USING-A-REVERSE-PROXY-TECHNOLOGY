@@ -258,25 +258,25 @@ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 
 ```
 
-**Nginx Self Signed Certificate Output**  
-``` bash
-writing new private key to '/etc/ssl/private/ACS.key'
------
-You are about to be asked to enter information that will be incorporated
-into your certificate request.
-What you are about to enter is what is called a Distinguished Name or a DN.
-There are quite a few fields but you can leave some blank
-For some fields there will be a default value,
-If you enter '.', the field will be left blank.
------
-Country Name (2 letter code) [XX]:US
-State or Province Name (full name) []:FL
-Locality Name (eg, city) [Default City]:Miami
-Organization Name (eg, company) [Default Company Ltd]:HRAcompany
-Organizational Unit Name (eg, section) []:Dev
-Common Name (eg, your name or your server's hostname) []:172.31.17.2
-Email Address []:myemail@email.com
-```
+* **Nginx Self Signed Certificate Output**  
+	``` bash
+	writing new private key to '/etc/ssl/private/ACS.key'
+	-----
+	You are about to be asked to enter information that will be incorporated
+	into your certificate request.
+	What you are about to enter is what is called a Distinguished Name or a DN.
+	There are quite a few fields but you can leave some blank
+	For some fields there will be a default value,
+	If you enter '.', the field will be left blank.
+	-----
+	Country Name (2 letter code) [XX]:US
+	State or Province Name (full name) []:FL
+	Locality Name (eg, city) [Default City]:Miami
+	Organization Name (eg, company) [Default Company Ltd]:HRAcompany
+	Organizational Unit Name (eg, section) []:Dev
+	Common Name (eg, your name or your server's hostname) []:172.31.17.2
+	Email Address []:myemail@email.com
+	```
 
 
 **Webserver**  
