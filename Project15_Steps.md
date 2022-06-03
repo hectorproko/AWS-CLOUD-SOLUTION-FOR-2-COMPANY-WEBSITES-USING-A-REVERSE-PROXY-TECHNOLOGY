@@ -151,6 +151,24 @@ Amazon EFS access points are application-specific entry points into an EFS file 
 	* POSIX permission to apply to the root directory path : `0755`  
 	* Tag name: tooling-ap (ap access point)  
 
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/accessPoints.png)  
+
+**Create RDS**  
+* **Create KMS Key**  
+  KMS > Customer managed keys > Create Key  
+  * Step1:  (defaults)  
+	 * Key type: Symmetric  
+	 * Advanced options  
+	    * Key material origin: KMS  
+		* Regionality: Single-Region key  
+  * Step2:  
+	 * Alias: HRA-rds  
+	 * Description: for the rds instance  
+	 * Tags: Name HRA-rds-key  
+  * Step3:   
+     * Add yourself as administrator of key (had to create AIM user Hector)(You can assign to a role?)  
+
+
 
 
 
