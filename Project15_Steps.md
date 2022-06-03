@@ -166,9 +166,42 @@ Amazon EFS access points are application-specific entry points into an EFS file 
 	 * Description: for the rds instance  
 	 * Tags: Name HRA-rds-key  
   * Step3:   
-     * Add yourself as administrator of key (had to create AIM user Hector)(You can assign to a role?)  
+     * Add yourself as administrator of key _(created AIM user Hector)_
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/customerManagedKeys.png)  
 
 
+**Create Subnet Group**  
+Amazon RDS > Subnet groups > Create DB Subnet Group  
+* Subnet group details  
+  * Name: hra-rds-subnet  
+    * Description: for rds subnets  
+	* VPC: HRA-VPC  
+  * Add subnets  
+	* Availability Zones: us-east-1a, us-east-1b  
+    * Subnets: Private 3 and 4  
+  
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/subnetGroups.png)  
+
+
+Amazon RDS > Dashboard > Create database  
+	Choose a database creation method: Standard create  
+	Engine options:  MySQL  
+	Templates: Free tier (wont able to select KMS key to encrypt DB), select production, you can see it by just scrolling down  
+	Settings  
+		DB cluster identifier: HRA-database  
+	Credentials Settings  
+		Master username: HRAadmin  
+		Master password: admin12345  
+	Connectivity  
+		Virtual private cloud (VPC): HRA-VPC  
+		Subnet group: hra-rds-subnet  
+	Existing VPC security groups: HRA-datalayer  
+	Availability Zone: us-east-1a  
+	Database options:  
+		Initial database name: test (not sure we need it though but he put it)  
+		
+productionRDSencryption.gif
 
 
 
