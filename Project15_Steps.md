@@ -88,6 +88,8 @@ Edit Private Route Table **HRA-private-rtb** like so _dest:_ `0.0.0.0/0`  _targe
   * **HRA-webserver** | SSH from **HRA-bastion** , HTTP/S from **HRA-int-ALB**
   * **HRA-datalayer** | MYSQL/Aurora from **HRA-bastion**, NFS from **HRA-webserver**, MYSQL/Aurora from **HRA-webserver**  
 
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/securiyGroups.png)  
+
 
 
 
