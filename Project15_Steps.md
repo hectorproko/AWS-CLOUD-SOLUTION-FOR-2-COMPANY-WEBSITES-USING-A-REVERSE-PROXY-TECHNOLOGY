@@ -1,7 +1,7 @@
 
 
 
-#### Step 1
+#### Project 15
 
 I start by getting a domain `hracompany.ga` from `www.freenom.com`
 
