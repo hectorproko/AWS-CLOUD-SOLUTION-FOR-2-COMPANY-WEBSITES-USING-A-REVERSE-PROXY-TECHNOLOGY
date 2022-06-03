@@ -558,12 +558,21 @@ systemctl restart httpd
 ```
 
 Need to change **EFS Access Point**  
-Amazon EFS > Access points  
-sudo mount -t efs -o tls,accesspoint=`fsap-062202198bc6f1e1a fs-00a1cb0a1b244d9b6`:/ /var/www/
+Amazon EFS > Access points _(I get access point for **wordpress**)_  
+sudo mount -t efs -o tls,accesspoint=`fsap-062202198bc6f1e1a fs-00a1cb0a1b244d9b6`:/ /var/www/  
 
-sed -i "s/localhost/`hra-database.cssi6ineszpw.us-east-1.rds.amazonaws.com`/g" 
+Need to change **RDS Endpoint**  
+* RDS > Databases > \<Your Database>  
+   * Connectivity & security  
+      * Endpoint: \<Need this>  
 
-	
+sed -i "s/localhost/`hra-database.cssi6ineszpw.us-east-1.rds.amazonaws.com`/g"  
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/EFS_mount_wordpress.gif) 
+
+Master username: **HRAadmin**  
+Master password: **admin12345**  
+
 
 	
 
