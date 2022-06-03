@@ -119,8 +119,10 @@ Now we see in Route 53 > Hosted zones > `hracompany.ga`
 
 Mount targets: **HRA-private-subnet-1** and **HRA-private-subnet-2**, where the webservers are, resources in these subnets will have the ability to mount the filesystem  
 Apply Security Group **HRA-datalayer**  
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/EFS.gif)  
 
-EFS.gif
+
+
 
 
 
