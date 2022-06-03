@@ -200,9 +200,11 @@ Amazon RDS > Subnet groups > Create DB Subnet Group
   Availability Zone: us-east-1a  
   Database options:  
     * Initial database name: test (no need to have it)  
-		
+
+Production gives option to select encryption key  		
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/productionRDSencryption.gif)  
 
+Choosing **Free Tier**  
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/RDS_creation.gif)  
 
 
