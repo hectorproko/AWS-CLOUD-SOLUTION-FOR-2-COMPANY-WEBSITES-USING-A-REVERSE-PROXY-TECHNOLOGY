@@ -422,20 +422,22 @@ On **Listeners and routing** added `HTTPS:443`
 	Health checks  
     * Path: `/healthstatus`  
 	                
-	Pending
-	Go to internal LB and click tab Listeners
-	We see by default we have 
-	We can insert rule, add condition, host header
-	
+
+Go to internal LB and click tab Listeners  
+We can insert rule, add condition, host header  
+So depending on the header, traffic will be forwarded to a specific target group   
+	`tooling.hracompany.ga` or `www.tooling.hracompany.ga`  
+	`wordpress.hracompany.ga` or `www.wordpress.hracompany.ga`
+
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/intALB_Rules.gif)  
 
 
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/intALB_RulesPNG.png)  
 
+
+
 	
-	So if header is tooling.oylnadmola or www.tooling.. If will forward to a different target group ACS-tooling-target
-	tooling.hracompany.ga or www
-	wordpress.hracompany.ga or www
+
 	
 
 	
