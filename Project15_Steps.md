@@ -507,7 +507,7 @@ EC2 > Launch Templates > Create launch template
 
 Make sure I have:  
 `server_name *.hracompany.ga;`  
-`proxy pass https://internal-HRA-int-ALB-1557292755.us-east-1.elb.amazonaws.com/;`  
+`proxy pass https://internal-HRA-int-ALB-1557292755.us-east-1.elb.amazonaws.com/;` _(Internal Load Balancer)_
 
 
 
