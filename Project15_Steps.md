@@ -707,7 +707,7 @@ EC2 > Auto Scaling > Auto Scaling Groups > Create Auto Scaling group
 
 
 
-### Create database _wordpressdb_ and _toolingdb_  
+**Create database _wordpressdb_ and _toolingdb_**   
 Now I'll use Bastion Instance to connect to **RDS**  
 
 We need the **Endpoint** of **HRA-database**  
@@ -820,8 +820,33 @@ mysql>
     * Name **HRA-tooling**
 
 
+### Create records in Route 53 to route traffic to HRA-ext-ALB
 
+Create records for:  
+`tooling.hracompany.ga ` 
+`www.tooling.hracompany.ga`  
+`wordpress.hracompany.ga`  
+`www.wordpress.hracompany.ga`
 
+Route 53 > Hosted zones > `hracompany.ga` > Create record  
+ * Quick create record
+   * Record name \<Name>
+ * Record type: A - Routes traffic to an IPv4 address and some AWS resources
+   Route traffic to
+   * Alias to Application and Classic Load Balancer
+	 US East (N. Virginia) [us-east-1]
+	 **HRA-ext-ALB**  
+
+Creating one record  
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/route53_createRecord_tooling.gif) 
+
+Created records for:  
+`tooling.hracompany.ga `   
+`www.tooling.hracompany.ga`  
+`wordpress.hracompany.ga`  
+`www.wordpress.hracompany.ga`  
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/records3.png) 
 
 
 
