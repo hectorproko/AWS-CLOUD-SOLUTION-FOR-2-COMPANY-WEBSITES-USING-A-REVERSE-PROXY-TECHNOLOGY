@@ -531,9 +531,7 @@ Make sure I have:
 ``` bash
 #!/bin/bash
 mkdir /var/www/
-```
 sudo mount -t efs -o tls,accesspoint=`fsap-062202198bc6f1e1a fs-00a1cb0a1b244d9b6`:/ /var/www/
-``` bash
 yum install -y httpd 
 systemctl start httpd
 systemctl enable httpd
@@ -550,9 +548,7 @@ mkdir /var/www/html/
 cp -R /wordpress/* /var/www/html/
 cd /var/www/html/
 touch healthstatus
-```
 sed -i "s/localhost/`hra-database.cssi6ineszpw.us-east-1.rds.amazonaws.com`/g" 
-``` bash
 wp-config.php
 sed -i "s/username_here/HRAadmin/g" wp-config.php 
 sed -i "s/password_here/admin12345/g" wp-config.php 
@@ -560,6 +556,12 @@ sed -i "s/database_name_here/wordpressdb/g" wp-config.php #doesnt exist yet
 chcon -t httpd_sys_rw_content_t /var/www/html/ -R
 systemctl restart httpd
 ```
+
+Need to change **EFS Access Point**  
+Amazon EFS > Access points  
+sudo mount -t efs -o tls,accesspoint=`fsap-062202198bc6f1e1a fs-00a1cb0a1b244d9b6`:/ /var/www/
+
+sed -i "s/localhost/`hra-database.cssi6ineszpw.us-east-1.rds.amazonaws.com`/g" 
 
 	
 
