@@ -639,64 +639,64 @@ sed -i "s/$db = mysqli_connect('mysql.tooling.svc.cluster.local', 'admin', 'admi
 
 EC2 > Auto Scaling > Auto Scaling Groups > Create Auto Scaling group
 
-* **Step 1** 
+* **Step 1**
    * Name 
       * Auto Scaling group name: **HRA-bastion** 
    * Launch template 
       * Launch template: **HRA-bastion-template**
-* **Step 2** 
+* **Step 2**
    * Instance purchase options: **Adhere to launch template** 
 	 Network 
       * VPC: **HRA-VPC** 
 		Subnet: 
 		 * **HRA-public-subnet-1** 
 		   **HRA-public-subnet-2**
-* **Step 3** 
+* **Step 3**
    * Load balancing: **No load balancer** 
 	Health checks: **ELB** (put a check mark)
-* **Step 4** 
+* **Step 4**
    * Group size: Everything 1 
 	Scaling policies: Target tracking scaling policy 
 	Target value: 90
-* **Step 5** 
+* **Step 5**
    * Add notifications  
       * SNS Topic: <drop down>  
         * Create a topic  
 		  * Send a notification to: **HRA Notification**  
 		  * With these recipients: <email>
-* **Step 6**  
+* **Step 6**
    * Add tags  
      * Name **HRA-bastion**  
 
 
-* **Step 1** 
+* **Step 1**
    * Name 
 	 * Auto Scaling group name: **HRA-nginx**  
    * Launch template    
 	 * Launch template: **HRA-nginx-template**
-* **Step 2**   
+* **Step 2**
    * Instance purchase options: Adhere to launch template  
 	 Network  
 	  * VPC: **HRA-VPC**  
 		Subnet:  
 		 * **HRA-public-subnet-1**  
 		   **HRA-public-subnet-2**
-* **Step 3**   
+* **Step 3**
    * Load balancing: **Attach to an existing load balancer**  
 	 Attach to an existing load balancer: Choose from your load balancer target group  
 	 Existing load balancer target groups: **HRA-nginx-target**  
 	 Health checks: **ELB** (put a check mark)
-* **Step 4**   
+* **Step 4**
    * Group size: Everything 1   
 	 Scaling policies: Target tracking scaling policy   
 	 Target value: 90
-* **Step 5** 
+* **Step 5**
    * Add notifications  
       * SNS Topic: <drop down>  
         * Create a topic  
 		  * Send a notification to: **HRA Notification**  
 		  * With these recipients: <email>
-* **Step 6**  
+* **Step 6**
    * Add tags  
      * Name **HRA-nginx**
 
