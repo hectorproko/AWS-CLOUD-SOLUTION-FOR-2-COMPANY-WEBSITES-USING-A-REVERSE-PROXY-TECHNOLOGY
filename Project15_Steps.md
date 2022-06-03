@@ -366,6 +366,83 @@ EC2 > Load Balancing >Target Groups > Create target group
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/targetGroups.png)  
 
 
+#### Creating Load Balancers  
+EC2 > Load Balancers > Create Load Balancer  
+Select load balancer type: Application Load Balancer  
+
+* **Step 1**  
+  * Basic Configuration  
+    * Name: **HRA-ext-ALB**  
+	  Scheme: internet-facing  
+  * Listeners  
+    * Load Balancer Protocol: HTTPS  
+  * Availability Zones  
+    * VPC: **HRA-VPC**  
+	  Availability Zones:  
+      * us-east-1a **HRA-public-subnet-1**  
+	    us-east-1b **HRA-public-subnet-2**  
+  * Tags:   
+    * Name **HRA-ext-ALB** 
+* **Step 2**  
+  * Select default certificate  
+    * Certificate type: Choose a certificate from ACM (recommended)  
+    * Certificate name: **HRA-Cert**  
+* **Step 3**  
+  * Assign a security group: Select an existing security group **HRA-ext-ALB**  
+* **Step 4**  
+  * Target group: Existing target group  
+	Name: **HRA-nginx-target**  
+	Health checks  
+    * Path: `/healthstatus ` 
+
+On **Listeners and routing** added `HTTPS:443`  
+
+* **Step 1** 
+  * Basic Configuration  
+    * Name: **HRA-int-ALB** 
+    * Scheme: **Internal-facing**  
+  * Listeners  
+    * Load Balancer Protocol: HTTPS  
+  * Availability Zones  
+    * VPC: **HRA-VPC**  
+	  Availability Zones:  
+      * us-east-1a **HRA-private-subnet-1**  
+        us-east-1b **HRA-private-subnet-2**  
+  * Tags: 
+    * Name **HRA-int-ALB**  
+* **Step 2**  
+  * Select default certificate  
+    * Certificate type: Choose a certificate from ACM (recommended)  
+    * Certificate name: **HRA-Cert**  
+* **Step 3**  
+  * Assign a security group: Select an existing security group **HRA-int-ALB**  
+* **Step 4**  
+  * Target group: Existing target group  
+	Name: **HRA-wordpress-target**  
+	Health checks  
+    * Path: `/healthstatus`  
+	                
+	Pending
+	Go to internal LB and click tab Listeners
+	We see by default we have 
+	We can insert rule, add condition, host header
+	
+	intALB_Rules.gif
+
+
+	
+	Screen clipping taken: 5/9/2022 8:38 AM
+	intALB_RulesPNG
+	
+	So if header is tooling.oylnadmola or www.tooling.. If will forward to a different target group ACS-tooling-target
+	tooling.hracompany.ga or www
+	wordpress.hracompany.ga or www
+	
+
+	
+
+
+
 
 
 
