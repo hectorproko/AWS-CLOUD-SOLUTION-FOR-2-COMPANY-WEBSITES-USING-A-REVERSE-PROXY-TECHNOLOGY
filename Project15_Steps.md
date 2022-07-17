@@ -1,7 +1,12 @@
+### AWS CLOUD SOLUTION FOR 2 COMPANY WEBSITES USING A REVERSE PROXY TECHNOLOGY
+In this proejct we will build a secure infrastructure inside **AWS VPC** (Virtual Private Cloud) network for a fictitious company that uses **WordPress CMS** for its main business website, and a [Tooling Website](https://github.com/hectorproko/tooling.git) for their DevOps team. As part of the desire for improved security and performance we'll use a reverse proxy technology from NGINX to achieve this.  
+
+Cost, Security, and Scalability are the major requirements for this project. Hence, implementing the architecture designed below, ensure that infrastructure for both websites, **WordPress** and **Tooling**, is resilient to Web Server’s failures, can accommodate to increased traffic and, at the same time, has reasonable cost.  
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/tooling_project_15.png) 
 
 
-
-#### Project 15
+#### Project 15: Steps
 
 I start by getting a domain `hracompany.ga` from `www.freenom.com`
 
