@@ -3,7 +3,9 @@ In this proejct we will build a secure infrastructure inside **AWS VPC** (Virtua
 
 Cost, Security, and Scalability are the major requirements for this project. Hence, implementing the architecture designed below, ensure that infrastructure for both websites, **WordPress** and **Tooling**, is resilient to Web Server’s failures, can accommodate to increased traffic and, at the same time, has reasonable cost.  
 
-![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/tooling_project_15.png) 
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/tooling_project_15.png)  
+
 
 
 #### Project 15: Steps
@@ -63,26 +65,53 @@ Creating Internet Gateway **HRA-Igw** attach to **HRA-VPC**
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/routeTable.png) 
 
 **Associate Subnets to Route Tables**  
-* **HRA-public-rtb** to Public Subnets 
-  ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/subnetAssociationPublicRTB.gif)	 
+* **HRA-public-rtb** to Public Subnets
+	<details close>
+	<summary>Expand to see GIF</summary>
+
+	![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/subnetAssociationPublicRTB.gif)  
+	</details> 
+  	 
 	
-* **HRA-private-rtb** to Private Subnets  
-  ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/subnetAssociationPrivateRTB.gif)  
+* **HRA-private-rtb** to Private Subnets
+	<details close>
+	<summary>Expand to see GIF</summary>
+
+	![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/subnetAssociationPrivateRTB.gif)  
+	</details>   
+    
 
 Edit Public Route Table **HRA-public-rtb** (to target **HRA-Igw** Internet Gateway)  
-![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/publicRTB_internetGateway.gif)  
+<details close>
+<summary>Expand to see GIF</summary>
+
+![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/subnetAssociationPrivateRTB.gif)
+</details>
+  
 
 **Create a NAT gateway**  
 * VPC > Elastic IPs > Allocate Elastic IP Address  
 	Allocate Elastic IP (Tag name **HRA-NAT**)  
+	<details close>
+	<summary>Expand to see GIF</summary>
+
 	![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/NAT_ElasticIP.gif)  
-	
+	</details>  
+
 * VPC > NAT Gateways > Create NAT gateway  
-	Create the **NAT** in NAT Gateways (**HRA-NatGateway**) into **Public Subnet 1** and choose Elastic IP **HRA-NAT**  
+	Create the **NAT** in NAT Gateways (**HRA-NatGateway**) into **Public Subnet 1** and choose Elastic IP **HRA-NAT**
+	<details close>
+	<summary>Expand to see GIF</summary>
+
 	![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/NATcreation.gif)  
+	</details>
 
 Edit Private Route Table **HRA-private-rtb** like so _dest:_ `0.0.0.0/0`  _target:_ **HRA-NatGateway**  
+<details close>
+<summary>Expand to see GIF</summary>
+
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/privateRTB_NAT.gif)  
+</details>
 
 **Creating Security Groups**
 * VPC > SECURITY > Security Groups > Create security group  
@@ -93,13 +122,18 @@ Edit Private Route Table **HRA-private-rtb** like so _dest:_ `0.0.0.0/0`  _targe
   * **HRA-webserver** | SSH from **HRA-bastion** , HTTP/S from **HRA-int-ALB**
   * **HRA-datalayer** | MYSQL/Aurora from **HRA-bastion**, NFS from **HRA-webserver**, MYSQL/Aurora from **HRA-webserver**  
 
-![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/securiyGroups.png)  
+	![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/securiyGroups.png)  
+
 
 
 **Creating a hosted zone**  
 Tells **Route 53** how to respond to **DNS** queries for domain `hracompany.ga`  
 Route 53 > Hosted zones > Create hosted zone  
+<details close>
+<summary>Expand to see GIF</summary>
+
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/hostedzone.gif)  
+</details>
 
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/records.png) 
 
