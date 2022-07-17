@@ -32,12 +32,12 @@ Creating Internet Gateway **HRA-Igw** attach to **HRA-VPC**
 * VPC > Internet Gateways > Create internet gateway
 
 * VCP > Subnets > Create subnet
-  * Public Subnets
+  * **Public** Subnets
     * **Public Subnet 1** HRA-public-subnet-1  
 		`10.0.1.0/24` | East 1a  
 	* **Public Subnet 2** HRA-public-subnet-2  
 		`10.0.3.0/24` | East 1b  
-  * Private Subnets
+  * **Private** Subnets
 	* **Private Subnet  1** HRA-private-subnet-1  
 	`10.0.2.0/24` | East 1a
 	* **Private Subnet  2** HRA-private-subnet-2  
@@ -73,7 +73,7 @@ Edit Public Route Table **HRA-public-rtb** (to target **HRA-Igw** Internet Gatew
 	![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/NAT_ElasticIP.gif)  
 	
 * VPC > NAT Gateways > Create NAT gateway  
-	Create the NAT in NAT Gateways (**HRA-NatGateway**) into **Public Subnet 1** and choose Elastic IP **HRA-NAT**  
+	Create the **NAT** in NAT Gateways (**HRA-NatGateway**) into **Public Subnet 1** and choose Elastic IP **HRA-NAT**  
 	![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/NATcreation.gif)  
 
 Edit Private Route Table **HRA-private-rtb** like so _dest:_ `0.0.0.0/0`  _target:_ **HRA-NatGateway**  
@@ -92,7 +92,7 @@ Edit Private Route Table **HRA-private-rtb** like so _dest:_ `0.0.0.0/0`  _targe
 
 
 **Creating a hosted zone**  
-Tells **Route 53** how to respond to DNS queries for domain `hracompany.ga`  
+Tells **Route 53** how to respond to **DNS** queries for domain `hracompany.ga`  
 Route 53 > Hosted zones > Create hosted zone  
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/hostedzone.gif)  
 
@@ -118,12 +118,13 @@ Now we see in Route 53 > Hosted zones > `hracompany.ga`
   VPC: **HRA-VPC**  
 
 Mount targets: **HRA-private-subnet-1** and **HRA-private-subnet-2**, where the webservers are, resources in these subnets will have the ability to mount the filesystem  
+
 Apply Security Group **HRA-datalayer**  
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/EFS.gif)  
 
 **Creating Access Point**  
 [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html)  
-Amazon EFS access points are application-specific entry points into an EFS file system that make it easier to manage application access to shared datasets.  
+Amazon **EFS** access points are application-specific entry points into an **EFS** file system that make it easier to manage application access to shared datasets.  
 
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/createAccessPoint.gif)  
 
@@ -166,7 +167,7 @@ Amazon EFS access points are application-specific entry points into an EFS file 
 	 * Description: for the rds instance  
 	 * Tags: Name HRA-rds-key  
   * Step3:   
-     * Add yourself as administrator of key _(created AIM user Hector)_
+     * Add yourself as administrator of key *(created AIM user Hector)*
 
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/customerManagedKeys.png)  
 
@@ -197,14 +198,14 @@ Amazon RDS > Subnet groups > Create DB Subnet Group
     * Virtual private cloud (VPC): **HRA-VPC**  
     * Subnet group: **hra-rds-subnet**  
 * Existing VPC security groups: **HRA-datalayer**  
-  Availability Zone: us-east-1a  
+  Availability Zone: **us-east-1a** 
   Database options:  
     * Initial database name: test (no need to have it)  
 
 Production gives option to select encryption key  		
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/productionRDSencryption.gif)  
 
-Creating RDS with  **Free Tier**  
+Creating **RDS** with  **Free Tier**  
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/RDS_creation.gif)  
 
 **Get the Endpoint:**  
@@ -212,7 +213,7 @@ Creating RDS with  **Free Tier**
 
 
 #### Creating and Preparing EC2 Instances
-	We create 3 RedHat Instances bastion, nginx and webserver install various things to create an image from later  
+We create 3 RedHat Instances **bastion**, **nginx** and **webserver** install the needed software to create an **images** from them later
 
 **Bastion**  
 
@@ -561,7 +562,7 @@ Need to change **EFS Access Point**
 Amazon EFS > Access points _(I get access point for **wordpress**)_  
 sudo mount -t efs -o tls,accesspoint=`fsap-062202198bc6f1e1a fs-00a1cb0a1b244d9b6`:/ /var/www/
 
-In access point you need click attach to get the mount point of EFS  
+In access point you need click attach to get the mount point of **EFS**  
 ![Markdown Logo](https://raw.githubusercontent.com/hectorproko/AWS-CLOUD-SOLUTION-FOR-2-COMPANY-WEBSITES-USING-A-REVERSE-PROXY-TECHNOLOGY/main/images/EFS_mount_wordpress.gif)  
 
 Need to change **RDS Endpoint**  
@@ -592,7 +593,7 @@ Master password: **admin12345**
 	Firewall (security groups) - Select existing security group
      * Security groups: **HRA-webservers**
   * Advanced network configuration
-     * Auto-assign public IP: disable
+     * Auto-assign public IP: **disable**
 * Advanced details
   * User data:
 	``` bash
@@ -653,7 +654,7 @@ EC2 > Auto Scaling > Auto Scaling Groups > Create Auto Scaling group
 		   **HRA-public-subnet-2**
 * **Step 3**
    * Load balancing: **No load balancer**  
-	Health checks: **ELB** (put a check mark)
+	Health checks: **ELB** *(put a check mark)*
 * **Step 4**
    * Group size: Everything 1  
 	 Scaling policies: Target tracking scaling policy  
